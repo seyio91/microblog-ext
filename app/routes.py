@@ -1,6 +1,6 @@
 from app import app
 from flask import render_template, redirect, flash, url_for
-from app.forms import LoginForm, RegistrationForm, EditProfieForm, ResetPasswordRequestForm, ResetPasswordForm
+from app.forms import LoginForm, RegistrationForm, EditProfileForm, ResetPasswordRequestForm, ResetPasswordForm
 from flask_login import current_user, login_user, logout_user, login_required
 from app.models import User
 from flask import request
@@ -91,7 +91,7 @@ def before_request():
 @app.route('/edit_profile', methods=['GET', 'POST'])
 @login_required
 def edit_profile():
-    form = EditProfieForm(current_user.username)
+    form = EditProfileForm(current_user.username)
     #submit form
     if form.validate_on_submit():
         current_user.username = form.username.data
