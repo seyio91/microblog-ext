@@ -18,3 +18,4 @@ class Config(object):
         ADMINS = ['seyi_obaweya@yahoo.com']
         LANGUAGES = ['en', 'es']
         MS_TRANSLATOR_KEY=os.environ.get('TRANSLATE_API_KEY')
+        ELASTICSEARCH_URL = os.environ.get('ELASTICSEARCH_URL')
