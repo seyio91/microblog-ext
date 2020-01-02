@@ -21,17 +21,19 @@
     {% else %}
     <p><a href="{{ url_for('main.unfollow', username=user.username) }}">Unfollow</a></p>
     {% endif %}
+    {% if user != current_user %}
+    <p>
+        <a href="{{ url_for('main.send_message',
+                            recipient=user.username) }}">
+            {{ _('Send private message') }}
+        </a>
+    </p>
+    {% endif %}
     <hr>
     {% for post in posts %}
         {% include '_post.html' %}
     {% endfor %}
 
-    <!-- {% if prev_url %}
-    <a href="{{ prev_url }}">Newer posts</a>
-    {% endif %}
-    {% if next_url %}
-    <a href="{{ next_url }}">Older posts</a>
-    {% endif %} -->
     <nav aria-label="...">
             <ul class="pager">
                 <li class="previous{% if not prev_url %} disabled{% endif %}">
