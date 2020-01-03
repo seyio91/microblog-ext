@@ -148,6 +148,9 @@ class Message(db.Model):
     def set_message_token(self):
         self.token = secrets.token_urlsafe(20)
 
+    def readStatus(self):
+        self.read_status = True
+
     def __repr__(self):
         return '<Message {}>'.format(self.body)
 

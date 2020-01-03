@@ -180,3 +180,14 @@ def messages():
         if messages.has_prev else None
     return render_template('messages.html', messages=messages.items,
                            next_url=next_url, prev_url=prev_url)
+
+
+@bp.route('/messages/<token>')
+@login_required
+def messages_read(token):
+    msg = Message.query.filter_by(token=token).first()
+    msg.readStatus()
+    db.session.add(msg)
+    db.session.commit()
+    return render_template('message_view.html', message=msg)
+
