@@ -8,6 +8,7 @@ from time import time
 import jwt
 from app import app
 from app.search import add_to_index, remove_from_index, query_index
+import secrets
 
 class SearchableMixin(object):
     @classmethod
@@ -141,6 +142,11 @@ class Message(db.Model):
     recipient_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     body = db.Column(db.String(140))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
+    read_status = db.Column(db.Boolean, unique=False, default=False)
+    token = db.Column(db.String(140))
+
+    def set_message_token(self):
+        self.token = secrets.token_urlsafe(20)
 
     def __repr__(self):
         return '<Message {}>'.format(self.body)

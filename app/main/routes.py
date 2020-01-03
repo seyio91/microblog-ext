@@ -156,6 +156,7 @@ def send_message(recipient):
     if form.validate_on_submit():
         msg = Message(author=current_user, recipient=user,
                       body=form.message.data)
+        msg.set_message_token()
         db.session.add(msg)
         db.session.commit()
         flash(_('Your message has been sent.'))
