@@ -6,7 +6,7 @@
     <h2>Total Unread Messages: 
         {% set unread_messages = current_user.unread_messages() %}
         {% if unread_messages %}
-        <span class="badge">{{ unread_messages }}</span></a>
+        <span id="unread_count" class="badge">{{ unread_messages }}</span></a>
         {% endif %}
     </h2>
     {% for post in messages %}

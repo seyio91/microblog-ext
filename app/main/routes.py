@@ -158,6 +158,7 @@ def send_message(recipient):
                       body=form.message.data)
         msg.set_message_token()
         user.add_notification('unread_message_count', user.new_messages())
+        user.add_notification('unopened_messages', user.unread_messages())
         db.session.add(msg)
         db.session.commit()
         flash(_('Your message has been sent.'))
@@ -190,6 +191,7 @@ def messages_read(token):
     msg = Message.query.filter_by(token=token).first()
     if msg:
         msg.readStatus()
+        current_useruser.add_notification('unopened_messages', user.unread_messages())
         db.session.add(msg)
         db.session.commit()
     return render_template('message_view.html', message=msg)
