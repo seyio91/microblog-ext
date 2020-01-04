@@ -113,6 +113,9 @@ class User(UserMixin, db.Model):
         return Message.query.filter_by(recipient=self).filter(
             Message.timestamp > last_read_time).count()
 
+    def unread_messages(self):
+        return Message.query.filter_by(recipient=self).filter_by(read_status=False).count()
+
     @staticmethod
     def verify_reset_password_token(token):
         try:

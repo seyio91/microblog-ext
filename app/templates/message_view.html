@@ -1,6 +1,14 @@
 {% extends "base.html" %}
 
 {% block app_content %}
+{% if message %}
 {{ message.author.username }}
 {{ message.body }}
+<br>
+{% else %}
+
+The Page You are looking for does not exist
+
+{% endif %}
+<a href="{{url_for('main.messages')}}" class="btn">Back</a>
 {% endblock %}

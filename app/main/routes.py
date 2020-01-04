@@ -186,8 +186,9 @@ def messages():
 @login_required
 def messages_read(token):
     msg = Message.query.filter_by(token=token).first()
-    msg.readStatus()
-    db.session.add(msg)
-    db.session.commit()
+    if msg:
+        msg.readStatus()
+        db.session.add(msg)
+        db.session.commit()
     return render_template('message_view.html', message=msg)
 
