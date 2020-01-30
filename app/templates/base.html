@@ -65,6 +65,18 @@
 
 {% block content %}
     <div class="container">
+        {% if current_user.is_authenticated %}
+        {% with tasks = current_user.get_tasks_in_progress() %}
+        {% if tasks %}
+            {% for task in tasks %}
+            <div class="alert alert-success" role="alert">
+                {{ task.description }}
+                <span id="{{ task.id }}-progress">{{ task.get_progress() }}</span>%
+            </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% endif %}
         {% with messages = get_flashed_messages() %}
         {% if messages %}
             {% for message in messages %}
@@ -138,6 +150,10 @@
         )
     });
 
+    function set_task_progress(task_id, progress) {
+        $('#' + task_id + '-progress').text(progress);
+    }
+
     function set_message_count(n) {
             $('#message_count').text(n);
             $('#message_count').css('visibility', n ? 'visible' : 'hidden');
@@ -150,9 +166,12 @@
     class Notifier {
         notify(type, count){
             if (type === "unread_message_count")
-                return set_message_count(count)
+                return set_message_count(count);
             if (type == "unopened_messages")
-                return set_unread_count(count)
+                return set_unread_count(count);
+            if (type == "task_progress")
+                console.log(count.progress)
+                return set_task_progress(count.task_id, count.progress);
         } 
     }
 

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-12-27 01:25+0200\n"
+"POT-Creation-Date: 2020-01-29 21:48+0200\n"
 "PO-Revision-Date: 2019-12-27 00:24+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: es\n"
@@ -18,28 +18,131 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.7.0\n"
 
-#: app/__init__.py:36
+#: app/__init__.py:30
 msgid "Please log in to access this page."
 msgstr "Por favor ingrese para acceder a esta página."
 
-#: app/forms.py:8
+#: app/translate.py:10
+msgid "Error: the translation service is not configured."
+msgstr ""
+
+#: app/translate.py:16
+msgid "Error: the translation service failed."
+msgstr ""
+
+#: app/auth/forms.py:8
 msgid "Username"
 msgstr "Nombre de usuario"
 
-#: app/routes.py:26
+#: app/main/forms.py:33 app/main/routes.py:140
+msgid "Search"
+msgstr ""
+
+#: app/main/forms.py:43
+msgid "Message"
+msgstr ""
+
+#: app/main/forms.py:45
+msgid "Submit"
+msgstr ""
+
+#: app/main/routes.py:34
 msgid "Your Post is now live"
 msgstr "¡Tu artículo ha sido publicado!"
 
-#: app/templates/404.html:4
-msgid "File Not Found"
-msgstr "Página No Encontrada"
+#: app/main/routes.py:164
+msgid "Your message has been sent."
+msgstr ""
 
-#: app/templates/404.html:5
-msgid "Back"
-msgstr "Atrás"
+#: app/main/routes.py:166
+msgid "Send Message"
+msgstr ""
 
-#: app/templates/_post.html:14
+#: app/main/routes.py:217
+msgid "An export task is currently in progress"
+msgstr ""
+
+#: app/main/routes.py:219
+msgid "Exporting posts..."
+msgstr ""
+
+#: app/templates/_post.html:16 app/templates/message_body.html:16
 #, python-format
 msgid "%(username)s said %(when)s"
 msgstr "%(username)s dijo %(when)s"
+
+#: app/templates/_post.html:27 app/templates/message_body.html:27
+msgid "Translate"
+msgstr ""
+
+#: app/templates/base.html:39 app/templates/messages.html:4
+msgid "Messages"
+msgstr ""
+
+#: app/templates/base.html:106
+msgid "Error: Could not contact server."
+msgstr ""
+
+#: app/templates/messages.html:20
+msgid "Newer messages"
+msgstr ""
+
+#: app/templates/messages.html:25
+msgid "Older messages"
+msgstr ""
+
+#: app/templates/search.html:4
+msgid "Search Results"
+msgstr ""
+
+#: app/templates/search.html:13
+msgid "Previous results"
+msgstr ""
+
+#: app/templates/search.html:18
+msgid "Next results"
+msgstr ""
+
+#: app/templates/send_message.html:5
+#, python-format
+msgid "Send Message to %(recipient)s"
+msgstr ""
+
+#: app/templates/user.html:20
+msgid "Export your posts"
+msgstr ""
+
+#: app/templates/user.html:31
+msgid "Send private message"
+msgstr ""
+
+#: app/templates/user_popup.html:13
+msgid "Last seen on"
+msgstr ""
+
+#: app/templates/user_popup.html:16
+#, python-format
+msgid "%(count)d followers"
+msgstr ""
+
+#: app/templates/user_popup.html:17
+#, python-format
+msgid "%(count)d following"
+msgstr ""
+
+#: app/templates/user_popup.html:21
+msgid "Follow"
+msgstr ""
+
+#: app/templates/user_popup.html:25
+msgid "Unfollow"
+msgstr ""
+
+#: app/templates/errors/404.html:4
+msgid "File Not Found"
+msgstr "Página No Encontrada"
+
+#: app/templates/errors/404.html:5
+msgid "Back"
+msgstr "Atrás"
 

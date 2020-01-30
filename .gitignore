@@ -1,0 +1,11 @@
+.env
+.flaskenv
+__pycache__
+bashrc.bak
+bin/
+include/
+lib/
+logs/
+.git/
+
+
