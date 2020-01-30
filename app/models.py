@@ -219,6 +219,15 @@ class Post(SearchableMixin, db.Model):
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 
+    def to_dict(self):
+        data = {
+            'id': self.id,
+            'user_id': self.user_id,
+            'timestamp': self.timestamp.isoformat() + 'Z',
+            'body': self.body
+        }
+        return data
+
 
 class Message(db.Model):
     id = db.Column(db.Integer, primary_key=True)
