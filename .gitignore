@@ -7,5 +7,7 @@ include/
 lib/
 logs/
 .git/
+db/
+dbtest/
 
 
